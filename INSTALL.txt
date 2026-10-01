@@ -1,0 +1,30 @@
+CANVAS DARK MODE
+
+Install in Arc or Chrome
+1. Download and extract dist/canvas-dark-mode-1.0.0.zip.
+2. Open arc://extensions in Arc or chrome://extensions in Chrome.
+3. Enable Developer mode and click Load unpacked.
+4. Select the extracted canvas-dark-mode folder containing manifest.json.
+5. Refresh Canvas. Keep the extracted folder in place after installing.
+
+If you cloned this repository, select its extension/ folder instead.
+Open the extension popup to turn dark mode on or off for the current site.
+For a custom Canvas address, enter its hostname in the popup and grant access.
+
+Other packages
+dist/canvas-dark-mode-web-store-1.0.0.zip has manifest.json at the ZIP root for store upload.
+dist/canvas-dark-mode-store-kit.zip contains the package, public screenshots, promotional images, and listing text. Extract it before using the individual files.
+
+Development
+Run npm ci, then npx playwright install chromium.
+Copy tests/pages.example.json to tests/pages.json and configure your Canvas URLs.
+Set "course" to your course's full URL and add individual page URLs under "pages" as needed.
+Run npm run session for a headless session, then npm test.
+For initial sign-in only, npm run session -- --login opens a visible browser.
+Close the login session before restarting headlessly to run tests.
+Run npm run test:extension for the extension behavior checks.
+
+Verification status
+The existing 8 extension checks and 42 available page captures passed.
+The existing-image editor and embedded YouTube states remain untested, so the full acceptance suite is incomplete.
+Private browser profiles, account-specific URLs, and authenticated screenshots are excluded from this repository.

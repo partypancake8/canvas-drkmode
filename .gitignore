@@ -1,0 +1,13 @@
+node_modules/
+tests/.profile/
+tests/pages.json
+test-results/*
+!test-results/extension-checks.json
+dist/*
+!dist/canvas-dark-mode-1.0.0.zip
+!dist/canvas-dark-mode-web-store-1.0.0.zip
+!dist/canvas-dark-mode-store-kit.zip
+.DS_Store
+**/.DS_Store
+.env
+.env.*

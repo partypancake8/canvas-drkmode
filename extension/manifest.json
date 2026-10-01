@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Canvas Dark Mode",
+  "version": "1.0.0",
+  "description": "Whole-page dark mode for Canvas with per-site settings and custom domains.",
+  "minimum_chrome_version": "120",
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "*://*.instructure.com/*",
+    "https://carousel.tl.it.umich.edu/*"
+  ],
+  "optional_host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Toggle Canvas dark mode"
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  }
+}

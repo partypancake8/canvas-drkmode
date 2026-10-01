@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Canvas Dark Mode</title>
+<style>
+  :root { color-scheme: dark; font: 14px/1.5 system-ui; background: #151a21; color: #edf2f7; }
+  body { width: 310px; margin: 20px; }
+  h1 { font-size: 19px; margin: 0 0 12px; }
+  label, input, button { display: block; }
+  [hidden] { display: none !important; }
+  input, button { box-sizing: border-box; width: 100%; padding: 9px; margin: 8px 0; border: 1px solid #8290a2; border-radius: 5px; font: inherit; }
+  button { background: #b8d9ff; color: #102137; cursor: pointer; }
+  #status { min-height: 42px; overflow-wrap: anywhere; }
+  small { color: #c1cad5; }
+  ul { padding-left: 18px; overflow-wrap: anywhere; }
+</style>
+<h1>Canvas Dark Mode</h1>
+<p id="status" role="status">Checking this site…</p>
+<button id="toggle" hidden>Turn dark mode off for this site</button>
+<form id="domain-form">
+  <label for="domain">Add a custom Canvas domain</label>
+  <input id="domain" placeholder="canvas.yourschool.edu" required autocomplete="off" spellcheck="false">
+  <button type="submit">Add domain</button>
+</form>
+<small>Changes apply only when you use a button. Added domains start in dark mode.</small>
+<ul id="domains" aria-label="Saved custom domains"></ul>
+<script src="popup.js"></script>
+</html>

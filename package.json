@@ -1,0 +1,17 @@
+{
+  "name": "canvas-drkmode",
+  "version": "1.0.0",
+  "description": "Whole-page Canvas dark mode Chrome extension",
+  "private": true,
+  "scripts": {
+    "test": "node tests/verify.mjs",
+    "test:extension": "node tests/extension.mjs",
+    "session": "node tests/session.mjs"
+  },
+  "type": "commonjs",
+  "devDependencies": {
+    "graphql": "^17.0.2",
+    "playwright": "^1.63.0",
+    "pngjs": "^7.0.0"
+  }
+}

@@ -1,0 +1,47 @@
+/* One inversion boundary for the page; nested documents inherit its pixels. */
+@scope (html:not([data-canvas-dark-disabled])) {
+  :scope:not([data-canvas-dark-frame]) {
+    background: #fff !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    filter: invert(1) hue-rotate(180deg) !important;
+    color-scheme: dark !important;
+  }
+  /* Native controls inside the filtered surface must start light. */
+  body { color-scheme: light !important; }
+
+  /* :is() keeps the media list in one place. Nested media reset the filter. */
+  :where(img:not([data-canvas-dark-glyph]), picture:not(:has(img[data-canvas-dark-glyph])), video, [style*="background-image" i], .avatar,
+      .ic-avatar, iframe[src*="youtube.com/embed/"], iframe[src*="youtube-nocookie.com/embed/"],
+      iframe[src*="player.vimeo.com/"], iframe[src*="kaltura.com/"],
+      iframe[src*="panopto.com/"], iframe[src*="instructuremedia.com/"],
+      iframe[src*="/media_attachments_iframe/"], #header, [class*="contentLayout__background__"], [data-canvas-dark-surface]) {
+    filter: invert(1) hue-rotate(180deg) !important;
+  }
+  /* A top-layer descendant starts a fresh boundary, even inside an avatar or
+     background-image wrapper. Stop the nested-media reset at that boundary. */
+  @scope (:is(img:not([data-canvas-dark-glyph]), picture:not(:has(img[data-canvas-dark-glyph])), video, [style*="background-image" i], .avatar, .ic-avatar,
+      #header, [class*="contentLayout__background__"], [data-canvas-dark-surface="dark"]))
+    to (:is(dialog:modal, [popover]:popover-open, [data-canvas-dark-surface="light"], .ic-app-header__menu-list-item--active .ic-app-header__menu-list-link)) {
+    :scope :is(img, picture, video, [style*="background-image" i], .avatar, .ic-avatar, iframe) {
+      filter: none !important;
+    }
+  }
+  /* The preserved dark navigation contains a light active-item surface.
+     Give that surface its own inversion boundary, including its text/icons. */
+  #header .ic-app-header__menu-list-item--active .ic-app-header__menu-list-link {
+    filter: invert(1) hue-rotate(180deg) !important;
+  }
+
+  /* Top-layer surfaces escape the root's compositing layer. */
+  :is(dialog:modal, [popover]:popover-open) {
+    background-color: #fff;
+    color: #222;
+    color-scheme: light !important;
+    filter: invert(1) hue-rotate(180deg) !important;
+  }
+  :is(dialog:modal, [popover]:popover-open)::backdrop {
+    background: rgb(255 255 255 / 45%) !important;
+    filter: invert(1) hue-rotate(180deg) !important;
+  }
+}

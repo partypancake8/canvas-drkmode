@@ -1,0 +1,5 @@
+{
+  "baseURL": "https://canvas.instructure.com",
+  "loginURL": "https://canvas.instructure.com/login/canvas",
+  "pages": {}
+}

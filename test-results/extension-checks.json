@@ -1,0 +1,38 @@
+{
+  "created": "2026-10-01T02:06:15.925Z",
+  "headless": true,
+  "checks": [
+    {
+      "name": "Read-only pixel checker detects white panels and dark-on-dark text",
+      "pass": true
+    },
+    {
+      "name": "Only extension runtime files; no underscore-prefixed entries",
+      "pass": true
+    },
+    {
+      "name": "Declarative document_start CSS persists and excludes all child frames",
+      "pass": true
+    },
+    {
+      "name": "Initial dark render; opening popup is passive; explicit off has no dark flash",
+      "pass": true
+    },
+    {
+      "name": "Off persists through actual browser restart without a dark first frame",
+      "pass": true
+    },
+    {
+      "name": "Custom domain permission, existing-tab application, passive add and persistence",
+      "pass": true
+    },
+    {
+      "name": "Chrome reports no extension load or runtime warnings",
+      "pass": true
+    },
+    {
+      "name": "Nested U-M login logo retains its original colors on the preserved dark background",
+      "pass": true
+    }
+  ]
+}
